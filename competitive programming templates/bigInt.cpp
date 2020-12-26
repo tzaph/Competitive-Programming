@@ -4,7 +4,7 @@
 using namespace std;
 
 struct bign{
-	static const int MXN = 120;
+	static const int MXN = 2005;
 	short d[MXN + 5], len;
 
 	void clean(){
@@ -180,4 +180,14 @@ istream& operator>>(istream& in, bign& x){
 ostream& operator<<(ostream& out, const bign& x){
 	out << x.str();
 	return out;
+}
+
+bign gcd(bign a, bign b){
+	if(a < b) swap(a, b);
+	if(b == 0) return a;
+	return gcd(b, a % b);
+}
+
+bign lcm(bign a, bign b){
+	return a * b / gcd(a, b);
 }
