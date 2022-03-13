@@ -6,7 +6,7 @@ using namespace std;
 //for minimum, reverse comparator or just use y = -mx - c
 #define ll long long
 
-bool Q;
+bool Q, minimum_query = 0;
 struct Line{
 	mutable ll m, c, pt;
 	bool operator<(const Line& rhs) const{
@@ -21,27 +21,31 @@ struct LineContainer : multiset<Line>{
 		return a / b - ((a ^ b) < 0 && a % b);
 	}
 
-	bool isect(iterator a, iterator b){
-		if(b == end()){
-			a -> pt = inf;
+	bool isect(iterator x, iterator y) {
+		if(y == end()){ 
+			x -> pt = inf; 
 			return false;
 		}
-
-		if(a -> m == b -> m) a -> pt = a -> c > b -> c ? inf : -inf;
-		else a -> pt = div(b -> c - a -> c, a -> m - b -> m);
-		return a -> pt >= b -> pt;
+		if(x -> m == y -> m) 
+			x -> pt = x -> c > y -> c ? inf : -inf;
+		else 
+			x -> pt = div(y -> c - x -> c, x -> m - y -> m);
+		return x -> pt >= y -> pt;
 	}
 
 	void add(ll m, ll c){
-		auto z = insert({m, c, 0}), y = z ++, x = y;
+		if(minimum_query) m *= -1, c *= -1;
+		auto z = insert({m, c, 0}), y = z++, x = y;
 		while(isect(y, z)) z = erase(z);
 		if(x != begin() && isect(-- x, y)) isect(x, y = erase(y));
 		while((y = x) != begin() && (-- x) -> pt >= y -> pt)
 			isect(x, erase(y));
 	}
 
-	ll que(ll x){
+	ll query(ll x){
 		Q = 1; auto l = *lower_bound({0, 0, x}); Q = 0;
-		return l.m * 1ll * x + l.c;
+		ll ans = l.m * x + l.c;
+		if(minimum_query) ans *= -1;
+		return ans;
 	}
 } cht;

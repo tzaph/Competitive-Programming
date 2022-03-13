@@ -1,0 +1,46 @@
+Every tutorial blog
+https://codeforces.com/blog/entry/57282
+
+Centroid Decomposition:
+https://robert1003.github.io/2020/01/16/centroid-decomposition.html
+https://codeforces.com/blog/entry/52492
+Problems:
+BOI 2021 1B
+
+DP CHT:
+https://robert1003.github.io/2020/02/17/dp-opt-convex-hull-trick.html
+https://robert1003.github.io/2020/02/06/li-chao-segment-tree.html
+https://cp-algorithms.com/geometry/convex_hull_trick.html
+https://codeforces.com/blog/entry/63823
+https://codeforces.com/blog/entry/86731 (Lichao tree extended)
+Problems:
+
+DP DnC:
+https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html
+https://robert1003.github.io/2020/02/25/dp-opt-divide-and-conquer.html
+Problems:
+
+HLD:
+https://robert1003.github.io/2020/09/04/heavy-light-decomposition.html
+https://cp-algorithms.com/graph/hld.html
+Problems:
+
+DP SoS:
+https://robert1003.github.io/2020/10/05/dp-sum-over-subset.html
+https://www.geeksforgeeks.org/sum-subsets-dynamic-programming/
+https://codeforces.com/blog/entry/45223
+Problems:
+
+Parallel Binary Search:
+https://robert1003.github.io/2020/02/05/parallel-binary-search.html
+Problems:
+
+CDQ DNC:
+https://robert1003.github.io/2020/01/31/cdq-divide-and-conquer.html
+Problems:
+
+DSU/Reachability Tree:
+https://codeforces.com/blog/entry/85714
+Problems:
+APIO 2020 B
+IOI 2018 Werewolf

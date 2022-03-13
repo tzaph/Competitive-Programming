@@ -8,7 +8,7 @@ struct bign{
 	short d[MXN + 5], len;
 
 	void clean(){
-		while(len > 1 && d[len - 1]) 
+		while(len > 1 && d[len - 1] == 0) 
 			len --;
 	}
 
@@ -18,7 +18,7 @@ struct bign{
 	}
 
 	bign operator=(int num){
-		char s[20];
+		char s[200];
 		sprintf(s, "%d", num);
 		*this = s;
 		return *this;
@@ -189,5 +189,5 @@ bign gcd(bign a, bign b){
 }
 
 bign lcm(bign a, bign b){
-	return a * b / gcd(a, b);
+	return (a * b) / gcd(a, b);
 }
