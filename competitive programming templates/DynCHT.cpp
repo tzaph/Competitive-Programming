@@ -21,28 +21,27 @@ struct LineContainer : multiset<Line>{
 		return a / b - ((a ^ b) < 0 && a % b);
 	}
 
-	bool isect(iterator x, iterator y) {
-		if(y == end()){ 
-			x -> pt = inf; 
+	bool isect(iterator a, iterator b){
+		if(b == end()){
+			a -> pt = inf;
 			return false;
 		}
-		if(x -> m == y -> m) 
-			x -> pt = x -> m > y -> m ? inf : -inf;
-		else 
-			x -> pt = div(y -> c - x -> c, x -> m - y -> m);
-		return x -> pt >= y -> pt;
+
+		if(a -> m == b -> m) a -> pt = a -> c > b -> c ? inf : -inf;
+		else a -> pt = div(b -> c - a -> c, a -> m - b -> m);
+		return a -> pt >= b -> pt;
 	}
 
 	void add(ll m, ll c){
-		auto z = insert({m, c, 0}), y = z++, x = y;
+		auto z = insert({m, c, 0}), y = z ++, x = y;
 		while(isect(y, z)) z = erase(z);
 		if(x != begin() && isect(-- x, y)) isect(x, y = erase(y));
 		while((y = x) != begin() && (-- x) -> pt >= y -> pt)
 			isect(x, erase(y));
 	}
 
-	ll query(ll x){
+	ll que(ll x){
 		Q = 1; auto l = *lower_bound({0, 0, x}); Q = 0;
-		return l.m * x + l.c;
+		return l.m * 1ll * x + l.c;
 	}
 } cht;
