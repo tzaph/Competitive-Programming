@@ -21,7 +21,7 @@ int get_centroid(int nw){
 	for(bool f = 0; !f;){
 		f = 1;
 		for(int nx : adj[nw]) if(!used[nx] && sz[nx] <= sz[nw])
-			if(sz[nx] > szt / 2){
+			if(sz[nx] > szt){
 				f = 0;
 				nw = nx; break;
 			}
